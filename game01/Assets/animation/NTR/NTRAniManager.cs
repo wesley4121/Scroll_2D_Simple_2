@@ -15,6 +15,7 @@ public class NTRAniManager : MonoBehaviour
     public GameObject n1, n2, n3, n4;
     public GameObject HPBar;
     public GameObject DMGT;
+    public AudioSource DamageSFX;
     public TextMeshProUGUI HPText;
     public HPBar NtrHPBar;
     public bool IsDie;
@@ -22,7 +23,6 @@ public class NTRAniManager : MonoBehaviour
     public Vector3 HPScale;
     public Transform DMGPos;
     public float MaxHP;
-
     public Vector3 mScale;
    public Vector3 n1SSCale;         
    public Vector3 n2SSCale;      
@@ -140,7 +140,7 @@ public class NTRAniManager : MonoBehaviour
 
     public void TakeDMG(float DMG)
     {
-        
+        DamageSFX.Play();
         if (transform.localScale.x<0 && !IsDie)
         {
 

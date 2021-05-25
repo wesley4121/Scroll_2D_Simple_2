@@ -11,6 +11,7 @@ public class BTMG : MonoBehaviour
     public GameObject ntrBase;
     public GameObject EVText;
     public NTRAniManager cAniMG;
+    public AudioSource ATKSound;
     void Start()
     {
         
@@ -45,6 +46,7 @@ public class BTMG : MonoBehaviour
     {
         if (!cAniMG.IsDie)
         {
+            ATKSound.Play();
             StartCoroutine("OnAttack");
         }
     }

@@ -17,6 +17,7 @@ public class GM : MonoBehaviour
     public GameObject textlabel;
     private NTRAniManager Player;
     private NPC1 npc1;
+    public bool End;
     void Start()
     {
         cutscene = gameObject.GetComponent<CutScene>();
@@ -50,10 +51,15 @@ public class GM : MonoBehaviour
             Cursor.SetCursor(m_Cursor,Vector2.zero, CursorMode.ForceSoftware);
         }
 
-        if (Player.Hp<=0 || npc1.HP <=0)
+        if (Player.Hp<=0 || npc1.HP <=0 )
         {
-            textlabel.GetComponent<SaySys>().ChangeTextFile(TextFileS[0]);
-            textlabel.SetActive(true);
+
+            if (!End )
+            {
+                textlabel.GetComponent<SaySys>().ChangeTextFile(TextFileS[0]);
+                textlabel.SetActive(true);
+                End = true;
+            }
         }
     }
 
